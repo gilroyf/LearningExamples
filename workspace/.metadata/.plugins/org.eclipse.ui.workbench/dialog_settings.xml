@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item value="800" key="dialogWidth"/>
+		<item value="500" key="dialogHeight"/>
+		<list key="orderedProviders">
+			<item value="org.eclipse.ui.preferences"/>
+		</list>
+		<list key="textArray">
+			<item value="server"/>
+		</list>
+		<list key="orderedElements">
+			<item value="org.eclipse.wst.server.ui.preferencePage"/>
+		</list>
+		<list key="textEntries">
+			<item value="1"/>
+		</list>
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="73" key="DIALOG_Y_ORIGIN"/>
+		<item value="328" key="DIALOG_X_ORIGIN"/>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.wst.web.ui.internal.wizards.SimpleWebProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.wst.web.ui"/>
+		</list>
+	</section>
+	<section name="ShowViewDialog">
+		<item value="378" key="DIALOG_WIDTH"/>
+		<item value="org.eclipse.wst.server.ui.ServersView" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
+		<item value="135" key="DIALOG_Y_ORIGIN"/>
+		<item value="450" key="DIALOG_X_ORIGIN"/>
+		<item value="465" key="DIALOG_HEIGHT"/>
+		<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.wst.server.ui"/>
+		</list>
+	</section>
+	<section name="ImportExportAction">
+		<item value="org.eclipse.jdt.internal.ui.jarpackager.JarPackageWizard" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.jdt.ui.Java"/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,16 @@
+package com.gf.intercom;
+
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
+import com.gfexamples.jeetutorial.Consumes;
+
+@Path("intercomserver")
+public class IntercomServer {
+
+	public IntercomServer() { };
+	
+	@POST
+    @Consumes("text/plain")
+	public getInitiatorOffer(String )
+}

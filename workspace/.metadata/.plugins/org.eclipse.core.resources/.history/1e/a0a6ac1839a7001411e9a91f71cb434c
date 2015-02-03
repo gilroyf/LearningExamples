@@ -1,0 +1,29 @@
+package com.gf.intercom;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
+
+//import com.gfexamples.jeetutorial.Consumes;
+
+@Path("intercomserver")
+public class IntercomServer {
+	@Context
+    private UriInfo context;
+	
+	public IntercomServer() { };
+	
+	@POST
+    //@Consumes("text/plain")
+	public void getInitiatorOffer(String s) {
+		System.out.println("In getInitiatorOffer " + s);
+	}
+	
+	@GET
+	public String goGetAsPlainText() {
+		return String("GILROY!");
+		
+	}
+}

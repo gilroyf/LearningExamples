@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gilroy Fernandes' Page - what else would I call it?</title>
+<link rel="stylesheet" href="gfsite.css">
+</head>
+<body>
+	<div class="main">
+	<h1>Welcome to my site</h1>
+	
+	<div class="map-canvas">
+	</div>
+	</div>
+
+</body>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+  function initialize() {}
+</script>
+</html>

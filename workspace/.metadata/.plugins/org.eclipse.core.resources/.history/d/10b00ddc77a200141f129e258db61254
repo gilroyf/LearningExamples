@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+
+h1 {
+	color: "rgb(255, 100, 0)";
+	text-align: left;
+	text-transform:uppercase;
+	font-family: "Times New Roman",Serif;	
+}
+
+#map-canvas {
+	width:800px;
+	height:800px;
+}

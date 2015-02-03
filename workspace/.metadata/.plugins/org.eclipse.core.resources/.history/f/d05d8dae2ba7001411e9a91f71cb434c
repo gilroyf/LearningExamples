@@ -1,0 +1,39 @@
+/**
+ * 
+ */
+
+function Video(localVideoDiv) {
+	this.localVDiv = localVideoDiv;
+	this.localMediaStream = null;
+	
+}
+
+Video.prototype.__getUserMediaSuccessfulCB = function(ms) {
+	var video = this.localVDiv;
+	video.src = window.URL.createObjectURL(ms);
+	this.localMediaStream =  ms;
+}
+
+Video.prototype.__getUserMediaErrorCB = function() {
+	
+	
+}
+
+Video.prototype.__hasUserMedia = function() {
+	return !!this.__getMedia();//(navigator.getUserMedia || navigator.webkitGetUserMedia ||navigator.mozGetUserMedia || navigator.msGetUserMedia);
+}
+
+Video.prototype.__getMedia = function () {
+	return 	navigator.getUserMedia || navigator.webkitGetUserMedia || 
+			navigator.mozGetUserMedia || navigator.msGetUserMedia;	
+}
+
+Video.prototype.init= function() {
+	if (!this.__hasUserMedia()) {
+		console.log("No usermedia Returning");
+	}
+	var obj = this;
+	navigator.getUserMedia = this.__getMedia();//navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;// _getMedia();
+	navigator.getUserMedia({video:true, audio:true}, function(){obj.__getUserMediaSuccessfulCB();}, function(){obj.__getUserMediaErrorCB();});
+
+}

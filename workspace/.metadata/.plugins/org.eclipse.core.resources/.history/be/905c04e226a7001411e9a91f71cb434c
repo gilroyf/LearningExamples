@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+
+function Video() {
+	
+	
+}
+
+video.prototype.__hasUserMedia = function() {
+	return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia || navigator.msGetUserMedia);
+}
+
+video
+
+video.prototype.init= function() {
+	if (!hasGetUserMedia()) {
+		console.log("No usermedia Returning");
+	}
+	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;// _getMedia();
+	navigator.getUserMedia({video:true, audio:true}, mediaSuccessCallback, mediaErrorCallback);
+
+}

@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+
+var restServiceChannel = {
+		url: "rest/intercomserver",
+		sendOffer: function(desc, group) {
+			$.ajax({
+				  url:this.url,
+				  type:"POST",
+				  data:JSON.stringify( {"type":"initiateCall", "group":group, "sdp":desc}),
+				  contentType:"application/json",
+				  dataType:"json",
+				  success: function(){
+					  console.log("done");
+				  }, 
+				  error: function(a,b,c) {
+					  console.log("error"+b+" "+c );
+				  }
+				});
+		}
+		
+}

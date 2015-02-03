@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	</head>
+	<body>
+		<form>
+			<input id="textMessage" type="text">
+			<input onclick="sendMessage();" value="Send" type="button">
+		</form>
+		<br>
+			<textarea id="messagesTextArea" rows="10" cole="50"></textarea>
+		</br>
+		
+		<script>
+			var ws = new WebSocket("ws://localhost:8080/domain1/WebSocketProg1/websocketendpointdemo");
+			ws.onopen = function(message) {processOpen(message);};
+			ws.onmessage = function(message) {processMessage(message);};
+			ws.onclose = function(message) {processClose(message);};
+			ws.onerror = function(message) {processError(message);};
+			function processOpen(message) {
+				messagesTextArea.value += "Server Connect\n";
+			}
+			function processClose(message) {
+				ws.send("client disconnected\n");
+				messagesTextArea.value += "Server Close\n";
+			}
+			function processMessage(message ){
+				messageTextArea.value += "Received from data " + message.data + "\n";
+				
+			}
+			function sendMessage(){
+				if (textMessage.value != "close") {
+					ws.send(textMessage.value);
+					messagesTextArea.value += "Send to Server "+textMessage.value+"\n";
+					textMessage.value = "";
+				} else {
+					ws.close();
+				}	
+			}
+			function processError(message) {
+				ws.send("client received erro\n");
+				messagesTextArea.value += "Server error\n";
+			}
+		</script>
+	</body>
+</html>

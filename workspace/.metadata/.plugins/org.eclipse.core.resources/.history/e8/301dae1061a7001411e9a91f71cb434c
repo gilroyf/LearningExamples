@@ -1,0 +1,63 @@
+package com.gf.intercom;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
+
+import com.json.parsers.JSONParser;
+import com.json.parsers.JsonParserFactory;
+//import com.json;//.parser;//.JsonParserFactory
+
+//import com.gfexamples.jeetutorial.Consumes;
+
+@Path("/intercomserver")
+public class IntercomServer {
+	@Context
+    private UriInfo context;
+	private HashMap<String,String> nameToOfferMap= new HashMap<String, String>();
+	public IntercomServer() { 
+//		this.nameToOfferMap = new HashMap<String, String>();
+	};
+	
+	@POST
+    @Consumes("text/plain")
+	public void getInitiatorOffer(String s) {
+		System.out.println("In getInitiatorOffer " + s);
+	}
+	
+	@POST
+    @Consumes("application/json")
+	public void getInitiatorOfferJSON(String s) {
+		System.out.println("In getInitiatorOfferJSON " + s);
+		JsonParserFactory factory=JsonParserFactory.getInstance();
+		JSONParser parser=factory.newJsonParser();
+		Map jsonData = parser.parseJson(s);
+		Map data = (Map)jsonData.get("sdp");
+		String sdp = (String)data.get("sdp");
+		nameToOfferMap.put(new String("group1"), sdp);
+		System.out.println("sdp = "+sdp);
+		System.out.println(" size = "+nameToOfferMap.size());
+	}
+	
+	@GET
+	@Produces("application/json")
+	public String goGetAsPlainText() {
+		String s= nameToOfferMap.get(new String("group1"));
+		
+		System.out.println("outputting "+s+ " size = "+nameToOfferMap.size());
+		if (s != null)
+			return s;
+		else
+			return new String("{error:\"missing value\"}");
+	}
+	
+	
+	
+}

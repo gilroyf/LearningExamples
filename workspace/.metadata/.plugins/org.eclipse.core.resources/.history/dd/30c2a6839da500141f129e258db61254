@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+
+
+h1 {
+	color: "rgb(255, 100, 0)";
+	text-align: left;
+	text-transform:uppercase;
+	font-family: "Times New Roman",Serif;	
+}
+
+.nav {
+	position: absolute;
+	right: 0px;	
+	width 400px;
+}
+
+.nav li{
+	display: inline;
+	text-align: right;
+	padding: 20px;
+}
+
+#map-canvas {
+	width:800px;
+	height:500px;
+}
+
+.container>div:not(.active) {
+	display: none;
+}
+
+.container .active{
+	display: block;
+}
+
+

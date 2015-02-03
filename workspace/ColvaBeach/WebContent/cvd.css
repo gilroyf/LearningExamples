@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+
+body  {
+	background-color: rgb(100,100,75);	
+}
+
+h1 {
+	color: "rgb(255, 100, 0)";
+	text-align: center;
+	text-transform:uppercase;
+	font-family: "Times New Roman",Serif;	
+
+}
+
+.nav li {
+	display: inline;
+	padding-left: 35px;
+	cursor: pointer;
+	font-weight: bold;	
+}
+
+.home-container {
+	background-image: url("https://lh6.googleusercontent.com/-zdXojssMHG8/S7k6a83RfSI/AAAAAAAAFHk/bibUZrHo2Gk/s576/IMG_5756.JPG");	
+	height:800px;
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+
+.home-container p {
+	position: relative;
+	color: rgb(100,200,0);
+	top:100px;
+	left:50px;
+	font-weight: bold;
+}
+
+.pics {
+	margin-left: auto;
+    margin-right: auto;
+    width: 70%;	
+}
+
+.pics img {
+	margin-left: auto;
+    margin-right: auto;	
+}
+
+.contact-container p {
+	position: relative;
+	left:100px;	
+
+}
+
+.active {
+	display:block;
+	/*visibility:visible;*/
+}
+
+.inactive {
+	display:none;
+/*	visibility:hidden;*/
+}
+
+.left-text-align {
+	text-align:left;	
+}
+
+.right-text-align {
+	text-align:right;	
+}

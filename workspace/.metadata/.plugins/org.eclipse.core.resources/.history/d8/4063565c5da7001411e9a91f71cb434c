@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Intercom chatroom</title>
+</head>
+<body>
+
+<div class="chatroom">
+<video class="localVideo" autoplay></video>
+<video class="remoteVideo" autoplay></video>
+
+</div>
+
+</body>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="video.js"></script>
+<script src="intercom.js"></script>
+</html>

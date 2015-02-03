@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+
+var restServiceChannel = {
+		sendOffer: function() {
+			
+		}
+		
+}

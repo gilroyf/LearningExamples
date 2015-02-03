@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+
+var main = function() {
+	var vid = new Video($('.localVideo')[0]);
+	vid.init();
+	
+	$('.getRemote').click = function() {
+		
+	}
+}
+
+$(document).ready(main);

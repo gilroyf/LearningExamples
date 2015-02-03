@@ -1,0 +1,38 @@
+/**
+ * 
+ */
+
+var restServiceChannel = {
+		url: "rest/intercomserver",
+		sendOffer: function(desc, group) {
+			$.ajax({
+				  url:this.url,
+				  type:"POST",
+				  data:JSON.stringify( {"type":"initiateCall", "group":group, "sdp":desc}),
+				  contentType:"application/json",
+				  dataType:"json",
+				  success: function(){
+					  console.log("done");
+				  }, 
+				  error: function(a,b,c) {
+					  console.log("error"+b+" "+c );
+				  }
+				});
+		},
+		onOffer: function(video, cb) {
+			_vid=video;
+			$.ajax({
+				  url:this.url,
+				  type:"GET",
+				  dataType:"json",
+				  success: 	function(data){ 
+					  			cb.call(_vid,data);//_vid.__restSuccessCB(data);
+					  		},
+				  error: function(a,b,c) {
+					  console.log("error"+b+" "+c );
+				  }
+				}
+			);
+			
+		}
+}

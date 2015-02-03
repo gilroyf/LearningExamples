@@ -1,0 +1,6 @@
+package com.gf.intercom;
+
+public class IntercomServer {
+
+	public IntercomServer() { };
+}

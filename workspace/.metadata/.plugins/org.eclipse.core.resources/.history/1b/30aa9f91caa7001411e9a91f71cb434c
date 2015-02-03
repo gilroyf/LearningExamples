@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+
+var vid = new Video($('.localVideo')[0]);//,$('.remoteVideo')[0]);
+var vidr=null;
+var main = function() {
+
+	vid.init();
+	
+	$('.getRemote').click(function() {
+		console.log('getRemove click');
+		var vidr = new Video($('.remoteVideo')[0]);
+		vidr.getSourceVideo();
+	});
+}
+
+$(document).ready(main);

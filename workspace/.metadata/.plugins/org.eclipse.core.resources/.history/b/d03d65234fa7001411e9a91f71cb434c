@@ -1,0 +1,56 @@
+/**
+ * 
+ */
+
+function Video(localVideoDiv) {
+	this.localVDiv = localVideoDiv;
+	this.localMediaStream = null;
+	var peerConnection = this.__getPeerConnection();
+	this.pcr = new peerConnection();
+}
+
+Video.prototype.__getUserMediaSuccessfulCB = function(ms) {
+	var video = $('.localVideo')[0];//this.localVDiv;
+	video.src = window.URL.createObjectURL(ms);
+	this.localMediaStream =  ms;
+	
+	//send offer to server
+	this.pcr.addStream(ms);
+	var obj = this;
+	this.pcr.createOffer(function(desc) {obj.__gotDescription(desc);}, function(e) {log.console(e);});
+	
+}
+
+Video.prototype.__gotDescription = function(desc) {
+	this.pcr.setLocalDescription(desc);
+	// send desciption to server
+	var jqhdr = $.post("rest/intercomserver/", JSON.stringify( {"sdp":desc} ), function(a,b,c) { console.log("SUCCESS"+ s);}, 'json');
+}
+
+Video.prototype.__getUserMediaErrorCB = function() {
+	
+	
+}
+
+Video.prototype.__getPeerConnection = function() {
+	return window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+}
+
+Video.prototype.__hasUserMedia = function() {
+	return !!this.__getMedia();//(navigator.getUserMedia || navigator.webkitGetUserMedia ||navigator.mozGetUserMedia || navigator.msGetUserMedia);
+}
+
+Video.prototype.__getMedia = function () {
+	return 	navigator.getUserMedia || navigator.webkitGetUserMedia || 
+			navigator.mozGetUserMedia || navigator.msGetUserMedia;	
+}
+
+Video.prototype.init= function() {
+	if (!this.__hasUserMedia()) {
+		console.log("No usermedia Returning");
+	}
+	var obj = this;
+	navigator.getUserMedia = this.__getMedia();//navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;// _getMedia();
+	navigator.getUserMedia({video:true, audio:true}, function(ms){obj.__getUserMediaSuccessfulCB(ms);}, function(){obj.__getUserMediaErrorCB();});
+
+}

@@ -1,0 +1,24 @@
+package com.gf.tutorial.websockets;
+
+import javax.websocket.server.ServerEndpoint;
+
+@ServerEndpoint("/WebSocketEndPointDemo")
+public class WebSocketEndPointDemo {
+	public void handleOpen() {
+		
+	}
+	
+	public void handleClose() {
+		
+	}
+	
+	public String handleMessage(String message) {
+		
+	}
+	
+	public void handleError(Throwable t)
+	{
+		
+		
+	}
+}

@@ -1,0 +1,61 @@
+/**
+ * 
+ */
+var main = function() {
+
+	 var position = {longitude: 0, latitude:0};
+	 var geoSuccess = function(a) {
+		position.longitude = a.coords.longitude; 
+		position.latitude = a.coords.latitude;
+		initialize();
+	 }
+	  
+	 function showError(error) {
+	    var text;
+	    
+	    switch(error.code) {
+	        case error.PERMISSION_DENIED:
+	            text = "User denied the request for Geolocation."
+	            break;
+	        case error.POSITION_UNAVAILABLE:
+	            text = "Location information is unavailable."
+	            break;
+	        case error.TIMEOUT:
+	            //x.innerHTML = "The request to get user location timed out."
+	            break;
+	        case error.UNKNOWN_ERROR:
+	            //x.innerHTML = "An unknown error occurred."
+	            break;
+	    }
+	    var x = $('#map-canvas').text(text);//document.getElementById("map-canvas");
+	}
+
+	function initialize() {
+	    var mapCanvas = $('#map-canvas');//document.getElementById('map-canvas');
+		var latlong = new google.maps.LatLng(position.latitude, position.longitude); //44.5403, -78.5463)
+	    var mapOptions = {
+		            center: latlong,
+		            zoom: 14,
+		            mapTypeId: google.maps.MapTypeId.ROADMAP
+		          };
+
+
+		var map = new google.maps.Map(mapCanvas, mapOptions);
+	    var marker = new google.maps.Marker({
+	        position: latlong,
+	        map: map,
+	        title: 'You\'re Location'
+	    });
+	 };
+
+
+	 
+	  var geo = window.navigator.geolocation;
+// for testing
+	  geoSuccess({coords: {longitude:43, latitude:-70}});
+	  
+	  //geo.getCurrentPosition(geoSuccess, showError);
+	
+}
+
+$(document).ready(main);

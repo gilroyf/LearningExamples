@@ -1,0 +1,12 @@
+package gf.hadoop.yarn.examples;
+
+import org.apache.hadoop.yarn.client;
+
+public class WorkCountClient {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

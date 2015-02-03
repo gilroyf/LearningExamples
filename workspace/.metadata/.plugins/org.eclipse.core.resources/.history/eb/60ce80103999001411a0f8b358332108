@@ -1,0 +1,10 @@
+package com.gilroyfernandes.fileReceiver;
+
+public class FilReceiver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.gf.intercom;
+
+import java.util.Set;
+
+import javax.ws.rs.ApplicationPath;
+
+@ApplicationPath("/rest")
+public class IntercomApplication extends Application {
+    @Override
+    public Set<Class<?>> getClasses() {
+        final Set<Class<?>> classes = new HashSet<>();
+        // register root resource
+        classes.add(IntercomApplication.class);
+        return classes;
+    }
+}

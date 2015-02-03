@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+
+var main = function() {
+	var vid = new Video();
+	vid.init($('.localVideo')[0]);
+	
+}
+
+$(document).ready(main);

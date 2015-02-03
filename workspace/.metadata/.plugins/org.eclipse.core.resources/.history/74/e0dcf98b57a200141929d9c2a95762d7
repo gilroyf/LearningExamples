@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gilroy Fernandes' Page - what else would I call it?</title>
+</head>
+<body>
+	<div class="main">
+	<h1>Welcome to my site</h1>
+	
+	<div id="map-canvas">
+	</div>
+	</div>
+
+</body>
+</html>

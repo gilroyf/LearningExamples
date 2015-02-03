@@ -1,0 +1,25 @@
+package gf.hadoop.yarn.examples;
+
+import org.apache.hadoop.yarn.client.api.YarnClient;
+import org.apache.hadoop.yarn.client.api.YarnClientApplication;
+import org.apache.hadoop.yarn.conf.YarnConfiguration;
+
+public class WorkCountClient {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//
+		//create a client
+		//
+		YarnConfiguration conf= new YarnConfiguration();
+		YarnClient yarnClient = YarnClient.createYarnClient();
+		yarnClient.init(conf);
+		yarnClient.start();
+		
+		YarnClientApplication yarnApp = yarnClient.createApplication();
+		
+		
+	}
+
+}
