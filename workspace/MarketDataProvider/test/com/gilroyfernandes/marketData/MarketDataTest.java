@@ -50,6 +50,14 @@ public class MarketDataTest {
 		assertFalse("Objects should not be equal different price", md1.equals(md2));
 	}
 	@Test 
+	public void testEqualsChangingPrice() {
+		Date d1 = new Date();
+		MarketData md1 = MarketData.newIstance("IBM", d1, 100);
+		MarketData md2 = MarketData.newIstance("IBM", d1, 100.1);
+		md2.setValue(100);
+		assertTrue("Objects should be equal different price", md1.equals(md2));
+	}
+	@Test 
 	public void testexceptionifbadprice() {
 		Date d1 = new Date();
 		try {
@@ -59,7 +67,14 @@ public class MarketDataTest {
 		
 		}
 	}
-	
+	@Test 
+	public void testDateGetterImmutable() {
+		Date d1 = new Date();
+		MarketData md1 = MarketData.newIstance("IBM", d1, 100);
+		Date d2 = md1.getTimestamp();
+		d2.setSeconds(d2.getSeconds() + 100);
+		assertFalse("Dates should not be equal", md1.getTimestamp().equals(d2));
+	}
 	@Test
 	public void testGetTimestamp() {
 //		fail("Not yet implemented");

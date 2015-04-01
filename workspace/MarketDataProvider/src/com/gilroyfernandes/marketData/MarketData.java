@@ -9,7 +9,7 @@ public final class MarketData {
 	private double value;
 	
 	public Date getTimestamp() {
-		return timestamp;
+		return new Date(timestamp.getTime());
 	}
 
 	public void setTimestamp(Date timestamp) {
