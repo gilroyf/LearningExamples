@@ -16,6 +16,14 @@ public class MarketDataTest {
 		assertTrue("Objects should be equal", md1.equals(md2));
 	}
 	
+	@Test 
+	public void testHashCodeEquals() {
+		Date d1 = new Date();
+		MarketData md1 = MarketData.newIstance("IBM", d1, 100);
+		MarketData md2 = MarketData.newIstance("IBM", d1, 100);
+		assertTrue("hash codes should be equal", md1.hashCode() == md2.hashCode() );
+	}
+	
 	@Test
 	public void testNotEqualsDate() {
 		Date d1 = new Date();
@@ -24,7 +32,7 @@ public class MarketDataTest {
 		d2.setSeconds(d2.getSeconds() + 20);
 		MarketData md3 = MarketData.newIstance("IBM", d2, 100);
 		System.out.println("d1 = " + d1 + " d2 = " + d2);
-		assertFalse("Objects should not be equal", md1.equals(md3));
+		assertFalse("Objects should not be equal", md1.equals(md3) || md1.hashCode() == md3.hashCode());
 		
 	}
 	@Test 
